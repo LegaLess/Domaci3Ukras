@@ -8,32 +8,25 @@ using namespace std;
 
 int main() {
 
-	Lista<int> lista;
+	Lista<Kugla> lista;
 
-	try {
-		Boja b1(213, 31, 214);
-		Boja b2(7, 78, 14);
-		
-		Kugla kugla(b1, 120, NAJVECA);
+	Boja b1(10, 210, 78);
+	Boja b2(10, 210, 78);
+	Boja b3(98, 123, 90);
+	Boja b4(243, 87, 5);
 
-		cout << kugla.get_masa() << endl;
+	Kugla k1(b1, 15, MALA);
+	Kugla k2(b1, 20, SREDNJA);
+	Kugla k3(b1, 30, VELIKA);
+	Kugla k4(b1, 50, NAJVECA);
 
-	}
-	catch(const PogresnaBoja& p){
-		cout << p;
-	}
-
-	lista <<= 2;
-	lista <<= 3;
-	lista <<= 4;
-	lista >>= 5;
-	lista >>= 6;
-	lista >>= 7;
+	lista <<= k1;
+	lista <<= k2;
+	lista >>= k3;
+	lista >>= k4;
 
 	for (lista.reset_tekuci(); lista.check_tek(); lista.sled()) {
-
-		cout << lista.get_tek() << " ";
-
+		cout << lista.get_tek();
 	}
 
 	return 0;

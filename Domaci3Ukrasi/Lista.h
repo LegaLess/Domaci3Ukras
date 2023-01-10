@@ -21,8 +21,8 @@ public:
 	
 	void reset_tekuci() { tek = prvi; }
 	void sled() { tek = tek->next; }
-	bool check_tek() { return tek; }
-	T& get_tek();
+	bool check_tek() const { return tek; }
+	T& get_tek() const;
 
 private:
 
@@ -34,7 +34,7 @@ private:
 
 	Elem* prvi = nullptr;
 
-	Elem* tek = nullptr;
+	mutable Elem* tek = nullptr;
 
 	Elem* posl = nullptr;
 
@@ -79,7 +79,7 @@ inline Lista<T>& Lista<T>::operator>>=(T obj)
 }
 
 template<typename T>
-inline T& Lista<T>::get_tek()
+inline T& Lista<T>::get_tek() const
 {
 	if (!tek) throw NePostoji();
 
